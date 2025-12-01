@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long num;
+    cout << "Enter an integer number: ";
+    cin >> num;
+
+    int count[10] = {0};
+
+    if (num < 0) num = -num; // handle negative numbers
+    while (num > 0) {
+        int digit = num % 10;
+        count[digit]++;
+        num /= 10;
+    }
+
+    int maxCount = count[0], digit = 0;
+    for (int i = 1; i < 10; i++) {
+        if (count[i] > maxCount) {
+            maxCount = count[i];
+            digit = i;
+        }
+    }
+
+    cout << "Digit that occurs most: " << digit << " (appears " << maxCount << " times)\n";
+    return 0;
+}
