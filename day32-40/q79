@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows, cols;
+    cout << "Enter number of rows and columns: ";
+    cin >> rows >> cols;
+
+    int mat[rows][cols];
+    cout << "Enter matrix elements:\n";
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            cin >> mat[i][j];
+
+    cout << "Diagonal traversal:\n";
+    // Traverse diagonals starting from first row
+    for (int d = 0; d < cols; d++) {
+        int i = 0, j = d;
+        while (i < rows && j >= 0) {
+            cout << mat[i][j] << " ";
+            i++;
+            j--;
+        }
+    }
+    // Traverse diagonals starting from last column of remaining rows
+    for (int r = 1; r < rows; r++) {
+        int i = r, j = cols - 1;
+        while (i < rows && j >= 0) {
+            cout << mat[i][j] << " ";
+            i++;
+            j--;
+        }
+    }
+    cout << endl;
+    return 0;
+}
