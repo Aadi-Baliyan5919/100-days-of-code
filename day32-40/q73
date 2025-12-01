@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows, cols;
+    cout << "Enter number of rows and columns: ";
+    cin >> rows >> cols;
+
+    int mat[rows][cols], rowSum[rows];
+
+    cout << "Enter matrix elements:\n";
+    for (int i = 0; i < rows; i++) {
+        rowSum[i] = 0; // initialize sum
+        for (int j = 0; j < cols; j++) {
+            cin >> mat[i][j];
+            rowSum[i] += mat[i][j];
+        }
+    }
+
+    cout << "Sum of each row:\n";
+    for (int i = 0; i < rows; i++)
+        cout << "Row " << i + 1 << ": " << rowSum[i] << endl;
+
+    return 0;
+}
