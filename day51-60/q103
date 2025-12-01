@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;
+    int arr[n], totalSum=0;
+    cout << "Enter array elements:\n";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+        totalSum += arr[i];
+    }
+
+    int leftSum=0;
+    int pivot=-1;
+    for(int i=0;i<n;i++){
+        if(leftSum == totalSum - leftSum - arr[i]){
+            pivot=i;
+            break;
+        }
+        leftSum += arr[i];
+    }
+
+    cout << pivot << endl;
+    return 0;
+}
