@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int i, j;
+
+    // Array to store the number of stars in each group
+    int groups[] = {1, 3, 5, 3, 1};
+    int n = sizeof(groups)/sizeof(groups[0]);
+
+    for(i = 0; i < n; i++) {           // Loop for each group
+        for(j = 0; j < groups[i]; j++) {  // Print stars in the group
+            printf("*\n");
+        }
+        printf("\n");                  // Blank line between groups
+    }
+
+    return 0;
+}
