@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+enum Menu {ADD=1, SUBTRACT, MULTIPLY};
+
+int main() {
+    int choice;
+    int x, y;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &x, &y);
+
+    printf("Menu: 1-ADD 2-SUBTRACT 3-MULTIPLY\nEnter choice: ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+        case ADD: printf("Sum=%d\n", x+y); break;
+        case SUBTRACT: printf("Difference=%d\n", x-y); break;
+        case MULTIPLY: printf("Product=%d\n", x*y); break;
+        default: printf("Invalid choice\n");
+    }
+    return 0;
+}
