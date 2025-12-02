@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main(){
+    char s[100], t[100];
+    cout << "Enter first string: ";
+    cin.getline(s,100);
+    cout << "Enter second string: ";
+    cin.getline(t,100);
+
+    int freq[26]={0};
+    for(int i=0; s[i]!='\0'; i++) freq[s[i]-'a']++;
+    for(int i=0; t[i]!='\0'; i++) freq[t[i]-'a']--;
+
+    bool anagram=true;
+    for(int i=0;i<26;i++){
+        if(freq[i]!=0){ anagram=false; break;}
+    }
+
+    if(anagram) cout << "Anagram\n";
+    else cout << "Not Anagram\n";
+    return 0;
+}
