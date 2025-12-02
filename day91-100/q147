@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+struct Employee {
+    char name[50];
+    int id;
+    float salary;
+};
+
+int main() {
+    struct Employee e;
+    FILE *fp = fopen("employees.dat", "wb");
+    if(!fp){ printf("Error opening file\n"); return 1; }
+
+    printf("Enter name, id, salary: ");
+    scanf("%s %d %f", e.name, &e.id, &e.salary);
+    fwrite(&e, sizeof(e), 1, fp);
+    fclose(fp);
+
+    // Reading
+    fp = fopen("employees.dat", "rb");
+    fread(&e, sizeof(e), 1, fp);
+    printf("\nEmployee Data from File:\nName: %s, ID: %d, Salary: %.2f\n", e.name, e.id, e.salary);
+    fclose(fp);
+    return 0;
+}
