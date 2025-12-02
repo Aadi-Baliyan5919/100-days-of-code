@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+int main(){
+    char str[200];
+    cout << "Enter string: ";
+    cin.getline(str,200);
+
+    bool start=true;
+    for(int i=0; str[i]!='\0'; i++){
+        if(start && isalpha(str[i])){
+            str[i]=toupper(str[i]);
+            start=false;
+        } else str[i]=tolower(str[i]);
+
+        if(str[i]=='.' || str[i]=='!' || str[i]=='?') start=true;
+    }
+
+    cout << str << endl;
+    return 0;
+}
